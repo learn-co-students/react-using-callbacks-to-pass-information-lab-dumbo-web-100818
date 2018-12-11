@@ -9,9 +9,6 @@ export default class Cell extends Component {
     }
   }
 
-  currentColor = () => {
-    return this.props.callBackFromParent(this.state.color)
-  }
 
   handleClick = () => {
     const newColor = this.props.currentColor()
@@ -28,4 +25,6 @@ export default class Cell extends Component {
   }
 }
 
-// can't change something in render while running the server! 
+// onClick evoke the function handleClick which will set the state to the Matrix's current state (this works because even though it is a prop of Cell, the currentColor function returns a value that is bound to the Matrix, so it will always refer to that value of the Matrix)
+
+// can't change something in render while running the server!
